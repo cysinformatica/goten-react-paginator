@@ -1,3 +1,3 @@
-import GotenPaginator from './src/gotenPaginator'
+import gotenPaginator from './src/gotenPaginator'
 
-export default GotenPaginator
+export default gotenPaginator
