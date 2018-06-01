@@ -1,5 +1,5 @@
 {
-  "name": "front",
+  "name": "gotenPaginator",
   "version": "0.1.0",
   "private": true,
   "main":"index.js",
