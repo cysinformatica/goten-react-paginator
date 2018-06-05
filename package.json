@@ -7,6 +7,14 @@
     "react": "^16.4.0",
     "react-ultimate-pagination": "^1.2.0"
   },
+  "peerDependencies": {      
+    "react": "^16.4.0",
+    "react-ultimate-pagination": "^1.2.0"
+  },
+  "devDependencies": {      
+    "react": "^16.4.0",
+    "react-ultimate-pagination": "^1.2.0"  
+  },
   "scripts": {
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom"
