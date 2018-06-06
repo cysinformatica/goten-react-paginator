@@ -1,16 +1,18 @@
 var path = require('path');
 module.exports = {
-  entry: './index.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'index.js',
-    libraryTarget: 'commonjs2' // THIS IS THE MOST IMPORTANT LINE! :mindblow: I wasted more than 2 days until realize this was the line most important in all this guide.
+    // LA LINEA DE AQUI ABAJO ES LA MAS IMPORTANTE!
+    // :mindblow: Perdí mas de 2 dias hasta darme cuenta que esta es la linea mas importante de toda esta guia.
+    libraryTarget: 'commonjs2'
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        include: path.resolve(__dirname, './'),
+        include: path.resolve(__dirname, 'src'),
         exclude: /(node_modules|bower_components|build)/,
         use: {
           loader: 'babel-loader',
@@ -22,6 +24,7 @@ module.exports = {
     ]
   },
   externals: {
-    'react': 'commonjs react' // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
+    // La linea de aqui abajo es solo para indicar que vamos a utilizar la dependencia "React" de parent-testing-project.
+    'react': 'commonjs react'
   }
 };
