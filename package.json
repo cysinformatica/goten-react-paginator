@@ -2,30 +2,42 @@
   "name": "goten-react-paginator",
   "version": "0.0.1",
   "description": "Put a description here",
-  "main": "build/index.js",
+  "main": "dist/index.js",
   "peerDependencies": {
-    "react": "^15.5.4",
-    "react-ultimate-pagination": "^1.2.0"
+    "react": "^15.5.4"
   },
   "dependencies": {
-    "react": "^15.5.4",
-    "webpack": "^2.6.1"
+    "react-ultimate-pagination": "^1.2.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch",
-    "build": "webpack"
+    "start": "webpack-dev-server --mode development",
+    "build": "babel src -d dist --copy-files",
+    "prepare": "npm run build"
   },
   "author": {
     "name": "Jon Colque",
     "email": "joncolque@gmail.com"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-preset-env": "^1.5.1"
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+
+    "css-loader": "^0.28.11",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.11.1",
+    "webpack-cli": "^3.0.2",
+    "webpack-dev-server": "^3.1.4",
+
+    "pubsub-js": "^1.6.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-scripts": "1.1.4"
   }
 }

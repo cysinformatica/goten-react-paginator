@@ -1,30 +1,48 @@
-var path = require('path');
+/*** webpack.config.js ***/
+
+const path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const htmlWebpackPlugin = new HtmlWebpackPlugin({
+    template: path.join(__dirname, "example/public/index.html"),
+    filename: "./index.html"
+});
 module.exports = {
-  entry: './src/index.js',
-  output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'index.js',
-    // LA LINEA DE AQUI ABAJO ES LA MAS IMPORTANTE!
-    // :mindblow: Perdí mas de 2 dias hasta darme cuenta que esta es la linea mas importante de toda esta guia.
-    libraryTarget: 'commonjs2'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        include: path.resolve(__dirname, 'src'),
-        exclude: /(node_modules|bower_components|build)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['env']
-          }
-        }
-      }
-    ]
-  },
-  externals: {
-    // La linea de aqui abajo es solo para indicar que vamos a utilizar la dependencia "React" de parent-testing-project.
-    'react': 'commonjs react'
-  }
+    entry: path.join(__dirname, "example/src/index.js"),
+    module: {
+        rules: [
+            {
+                test: /\.jsx$/,
+                loader: 'babel-loader',
+            }, {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/
+            }, {
+                test: /\.css$/,
+                loader: "style-loader!css-loader"
+            }, {
+                test: /\.png$/,
+                loader: "url-loader?limit=100000"
+            }, {
+                test: /\.scss$/,
+                loaders: ['style-loader', 'css-loader', 'sass-loader']
+            }, {
+                test: /\.jpg$/,
+                loader: "file-loader"
+            }, {
+                test: /\.(woff2|woff|ttf|eot)(\?v=[a-z0-9]\.[a-z0-9]\.[a-z0-9])?$/,
+                loader: 'url-loader?limit=100000&name=./fonts/[hash].[ext]'
+            }, {
+                test: /\.(svg)(\?v=[a-z0-9]\.[a-z0-9]\.[a-z0-9])?$/,
+                loader: 'url-loader?limit=100000&name=./imgs/[hash].[ext]'
+            }
+        ]
+    },
+    plugins: [htmlWebpackPlugin],
+    resolve: {
+        extensions: [".js", ".jsx"]
+    },
+    devServer: {
+        port: 3000
+    }
 };

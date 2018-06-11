@@ -1,4 +1,5 @@
 # Goten Paginator for React
+
 Generally when we developing a search we have:
 - Searcher. Wich has the filters of the search.
 - List. Wich shows the result of search.
@@ -8,34 +9,86 @@ But if we have a lot elements on the result, the search becomes uncomfortable:
 - Scrolling page.
 
 We need a Paginator.
-# Installation
-```sh
-$ npm install -s goten-paginator
+
+## Installation
+
+```npm install -s goten-react-paginator```
+
+## Requirements
+
+- The response of your api-backend must include the total elements, offset and limit.
+- Your Searcher must have a method that make the search.
+- In this method add two optional parameters: offset and limit.
+
+## Usage
+
+``` jsx
+const GotenPaginator = require('goten-react-paginator') //ES5
+
+import { GotenPaginator } from 'goten-react-paginator' //ES6
 ```
-# Use
-```js
-const GotenPaginator = require('goten-paginator')
-```
+
 Wrap your Searcher and List components
-```js
+
+``` jsx
 <GotenPaginator
-  totalPages={/*YouNeedManageTheStateOfTotalPages*/}
-  currentPage={/*YouNeedManageTheStateOfCurrentPage*/}
+  totalElements={/*YouNeedManageTheStateOfTotalElements*/}
+  offset={/*YouNeedManageTheStateOfOffset*/}
+  limit={/*YouNeedManageTheStateOfLimit*/}
 >
     <YourSearcher/>
-    <YourList elements={/*YourSourceOfTheElements*/}/>
+    <YourList/>
 </GotenPaginator>
 ```
-# Requirements
-- The response of your api-backend must include the total pages and current page.
-- Your Searcher must have a method that make the search.
--- In this method add two optional parameters: nextPage and quantityElements
-# GotenPaginator's parameters
-- totalPages: Number (Required)
-- currentPage: Number (Required)
-- searchMethod: (Optional. Here link your Searcher's method.)
-# Contribution
+
+## Example of use
+
+### without goten-react-paginator
+
+``` jsx
+render() {
+    return (
+      <div className="App">
+          <YourSearcher/>
+          <YourList/>
+      </div>
+    );
+  }
+```
+
+### with goten-react-paginator
+
+``` jsx
+render() {
+    return (
+      <div className="App">
+        <GotenPaginator
+          totalElements={this.state.totalElements}
+          offset={this.state.offset}
+          limit={this.state.limit}
+        >
+
+          <YourSearcher/>
+          <YourList/>
+
+        </GotenPaginator>
+      </div>
+    );
+  }
+```
+
+## GotenPaginator's parameters
+
+|Prop name | Type   | Description   |
+|---|---|---|
+|  totalElements (Required)| number  | Totality of elements to calculate the max number of pages |
+|  offset (Required)| number  | the offset to calculate the current page |
+|  limit (Required)| number  |  Quantity of elements to show|
+|  searchMethod (Optional)| method |  Here link your Searcher's method|
+
+## Contributions
+
 To contribute to this package, we propose the following workflow:
 - Add an issue with related tags to describe the contribution (is it a bug?, a feature request?)
-- Branch your solution from develop, with the name as #<issue_number>_<descriptive_name>
-- Pull request and wait for approval/corrections
+- Branch your solution from develop, with the name as ```#<issue_number>_<descriptive_name>```
+- Send a pull request and wait for approval/corrections

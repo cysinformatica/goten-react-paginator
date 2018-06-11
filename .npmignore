@@ -24,6 +24,11 @@ chrome-user-data
 *.swp
 *.swo
 package-lock.json
+.gitignore
 
-# npm run build
+# Examples
+example
+webpack.config.js
+
+# Babel compiler files
 dist
