@@ -3,12 +3,6 @@
   "version": "0.0.1",
   "description": "Put a description here",
   "main": "dist/index.js",
-  "peerDependencies": {
-    "react": "^15.5.4"
-  },
-  "dependencies": {
-    "react-ultimate-pagination": "^1.2.0"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development",
@@ -18,6 +12,12 @@
   "author": {
     "name": "Jon Colque",
     "email": "joncolque@gmail.com"
+  },
+  "peerDependencies": {
+    "react": ">=15.5.4"
+  },
+  "dependencies": {
+    "react-ultimate-pagination": "^1.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
