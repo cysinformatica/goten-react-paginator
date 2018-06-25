@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
 import { UltimatePagination } from './paginator'
+import PropTypes from 'prop-types';
 
-export default class GotenPagination extends Component {
+export default class GotenPaginator extends Component {
     constructor(){
         super()
         this.childRef = React.createRef()
@@ -24,3 +25,13 @@ export default class GotenPagination extends Component {
         )
     }
 }
+
+GotenPaginator.propTypes = {
+    totalElements:PropTypes.number.isRequired,
+    offset:PropTypes.number.isRequired,
+    limit:PropTypes.number.isRequired,
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ]).isRequired
+  };

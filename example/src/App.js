@@ -35,13 +35,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <GotenPaginator
+        <GotenPaginator
           totalElements={this.state.totalElements}
           offset={this.state.offset}
-          limit={this.state.limit}> */}
+          limit={this.state.limit}>
           <Buscador limit={this.state.limit}/>
           <List elements={this.state.elements}/>
-        {/* </GotenPaginator> */}
+        </GotenPaginator>
       </div>
     );
   }
