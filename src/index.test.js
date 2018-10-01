@@ -4,7 +4,8 @@ import { shallow } from 'enzyme'
 import List from './../example/src/components/List'
 import Buscador from './../example/src/components/Buscador'
 
-describe('Index paginator have 3 elements: 2 childs passed and 1 own',()=>{
+describe('GotenPaginator have 3 elements: 2 childs passed and 1 own',()=>{
+
     it('Elements into GotenPaginator', ()=>{
         const wrapper = shallow(
             <GotenPaginator
@@ -19,4 +20,5 @@ describe('Index paginator have 3 elements: 2 childs passed and 1 own',()=>{
         let countChildren = wrapper.children().length
         expect(countChildren).toEqual(3)
     })
+
 })

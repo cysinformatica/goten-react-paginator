@@ -16,7 +16,7 @@ We need a Paginator.
 
 ## Requirements
 
-- The response of your api-backend must include the total elements, offset and limit.
+- The response of your api-backend or soruce must include the total elements, offset and limit.
 - Your Searcher must have a method that make the search.
 - In this method add two optional parameters: offset and limit.
 
@@ -84,7 +84,7 @@ render() {
 |  totalElements (Required)| number  | Totality of elements to calculate the max number of pages |
 |  offset (Required)| number  | the offset to calculate the current page |
 |  limit (Required)| number  |  Quantity of elements to show|
-|  searchMethod (Optional)| method |  Here link your Searcher's method|
+|  searchMethod (Optional)| method |  Here link your Searcher's method. If you don't specify, the Goten's component take 'search' by default from your Searcher component|
 
 ## Contributions
 

@@ -1,17 +1,23 @@
 {
   "name": "goten-react-paginator",
   "version": "0.0.1",
-  "description": "Put a description here",
+  "description": "GotenTextField is a react component that facilitates the fast use of paginator",
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
     "start": "webpack-dev-server --mode development",
     "build": "babel src -d dist --copy-files",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "precommit": "npm run test"
   },
   "author": {
     "name": "Jon Colque",
     "email": "joncolque@gmail.com"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CySidi/goten-react-paginator"
   },
   "peerDependencies": {
     "react": ">=15.5.4"
@@ -27,18 +33,31 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.11",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "html-webpack-plugin": "^3.2.0",
-    "style-loader": "^0.21.0",
-    "url-loader": "^1.0.1",
-    "webpack": "^4.11.1",
-    "webpack-cli": "^3.0.2",
-    "webpack-dev-server": "^3.1.4",
+    "jest": "^23.2.0",
     "pubsub-js": "^1.6.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "jest": "^23.2.0"
-  }
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.11.1",
+    "webpack-cli": "^3.0.2",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "keywords": [
+    "goten",
+    "GotenJS",
+    "gonten component",
+    "goten-react",
+    "react",
+    "react component",
+    "paginator",
+    "searcher",
+    "list",
+    "table"
+  ]
 }
