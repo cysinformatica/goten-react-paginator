@@ -1,6 +1,6 @@
 {
   "name": "goten-react-paginator",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "GotenTextField is a React component that facilitates the implementation of a common paginator",
   "main": "dist/index.js",
   "scripts": {

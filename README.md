@@ -1,10 +1,10 @@
 # Goten Paginator for React
 
-Whenever we have some items we want to show, usually we create:
+When we have some items we want to show, we usually create:
 - A Searcher, which provides the filters for searching items.
 - A List, which shows the result of said search.
 
-For small data, this should be fine. But when working with bigger sets, we get:
+For small data, this should be fine. But when working with bigger sets we get:
 - Heavy payloads.
 - Endless scrolling.
 - Huge requirements on our backend and database.
@@ -26,6 +26,7 @@ We need a Paginator.
         getFromApi('/myApiURL', {offset, limit})
     }
 ```
+- You can also pass a function as a prop (searchMethod) to GotenPaginator, to avoid using functions from your Searcher.
 
 ## Usage
 
