@@ -3,6 +3,12 @@ import React, { Component } from 'react';
 import { UltimatePagination } from './paginator'
 import PropTypes from 'prop-types';
 
+
+const buttonClassName = {
+    active: "btn btn-primary",
+    default: "btn btn-default"
+}
+
 export default class GotenPaginator extends Component {
     constructor(){
         super()
@@ -19,7 +25,7 @@ export default class GotenPaginator extends Component {
             <div>
                 {React.cloneElement(this.props.children[0],{ref: this.childRef})}
                 {this.props.children[1]}                                                            
-                <UltimatePagination onChange={(newPage) => this.changePage(newPage)} currentPage={this.props.offset/this.props.limit + (this.props.totalElements==0?  0 : 1)} 
+                <UltimatePagination className={props.buttonClassName || buttonClassName} onChange={(newPage) => this.changePage(newPage)} currentPage={this.props.offset/this.props.limit + (this.props.totalElements==0?  0 : 1)} 
                     totalPages={Math.ceil(this.props.totalElements/this.props.limit)}/>
             </div>
         )
