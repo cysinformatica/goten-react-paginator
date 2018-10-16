@@ -1,12 +1,13 @@
 # Goten Paginator for React
 
-Generally when we developing a search we have:
-- Searcher. Wich has the filters of the search.
-- List. Wich shows the result of search.
+When we have some items we want to show, we usually create:
+- A Searcher, which provides the filters for searching items.
+- A List, which shows the result of said search.
 
-But if we have a lot elements on the result, the search becomes uncomfortable:
+For small data, this should be fine. But when working with bigger sets we get:
 - Heavy payloads.
-- Scrolling page.
+- Endless scrolling.
+- Huge requirements on our backend and database.
 
 We need a Paginator.
 
@@ -16,9 +17,16 @@ We need a Paginator.
 
 ## Requirements
 
-- The response of your api-backend or soruce must include the total elements, offset and limit.
-- Your Searcher must have a method that make the search.
-- In this method add two optional parameters: offset and limit.
+- Your API's response or source of data must include the total elements, offset and limit.
+- Your Searcher must have a method that executes the search (whatever that means in your application).
+    - The **search** method should have two parameters: offset and limit.
+    - Example,
+```jsx
+    search(offset, limit) {
+        getFromApi('/myApiURL', {offset, limit})
+    }
+```
+- You can also pass a function as a prop (searchMethod) to GotenPaginator, to avoid using functions from your Searcher.
 
 ## Usage
 
@@ -32,9 +40,9 @@ Wrap your Searcher and List components
 
 ``` jsx
 <GotenPaginator
-  totalElements={/*YouNeedManageTheStateOfTotalElements*/}
-  offset={/*YouNeedManageTheStateOfOffset*/}
-  limit={/*YouNeedManageTheStateOfLimit*/}
+  totalElements={/*totalElements - a Redux variable, a state, or some other data controlling entity*/}
+  offset={/*offset*/}
+  limit={/*limit*/}
 >
     <YourSearcher/>
     <YourList/>
@@ -67,10 +75,8 @@ render() {
           offset={this.state.offset}
           limit={this.state.limit}
         >
-
           <YourSearcher/>
           <YourList/>
-
         </GotenPaginator>
       </div>
     );
@@ -81,14 +87,15 @@ render() {
 
 |Prop name | Type   | Description   |
 |---|---|---|
-|  totalElements (Required)| number  | Totality of elements to calculate the max number of pages |
-|  offset (Required)| number  | the offset to calculate the current page |
-|  limit (Required)| number  |  Quantity of elements to show|
-|  searchMethod (Optional)| method |  Here link your Searcher's method. If you don't specify, the Goten's component take 'search' by default from your Searcher component|
+|  totalElements (Required)| number  | Total elements. To compute the maximum number of pages |
+|  offset (Required)| number  | Offset for working out the current page |
+|  limit (Required)| number  |  Amount of elements to show|
+|  searchMethod (Optional)| function |  You can pass any function (that receives two parameters, offset and limit) to GotenPaginator. This replaces the option of using the Searcher's method |
+|  searcherMethodName (Optional)| string |  When not using the searchMethod prop, you can pass a string to specify which method from Searcher the GotenPaginator should use to search. If none passed, it defaults to 'search' |
 
 ## Contributions
 
-To contribute to this package, we propose the following workflow:
-- Add an issue with related tags to describe the contribution (is it a bug?, a feature request?)
-- Branch your solution from develop, with the name as ```#<issue_number>_<descriptive_name>```
-- Send a pull request and wait for approval/corrections
+To contribute to this package, we use the following workflow:
+- Add an issue with related tags to describe the contribution (is it a bug? a feature request?).
+- Branch your solution from develop, naming it like #<issue_number>-<descriptive_name>.
+- Send a pull request and wait for approval/corrections.
