@@ -74,6 +74,10 @@ render() {
           totalElements={this.state.totalElements}
           offset={this.state.offset}
           limit={this.state.limit}
+          buttonClassName={{
+            active: "btn btn-success",
+            default: "btn btn-warning",
+          }}
         >
           <YourSearcher/>
           <YourList/>
@@ -92,6 +96,7 @@ render() {
 |  limit (Required)| number  |  Amount of elements to show|
 |  searchMethod (Optional)| function |  You can pass any function (that receives two parameters, offset and limit) to GotenPaginator. This replaces the option of using the Searcher's method |
 |  searcherMethodName (Optional)| string |  When not using the searchMethod prop, you can pass a string to specify which method from Searcher the GotenPaginator should use to search. If none passed, it defaults to 'search' |
+|  buttonClassName (Optional)| object |  this object has two styles properties **active** for selected page and **default** for the others buttons. |
 
 ## Contributions
 
