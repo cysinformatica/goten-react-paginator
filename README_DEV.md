@@ -9,3 +9,8 @@ if you add a new test
 
 npm run build
 npm test
+
+if you add a code in src
+
+npm run build
+npm start

@@ -19,6 +19,7 @@ We need a Paginator.
 - The response of your api-backend or soruce must include the total elements, offset and limit.
 - Your Searcher must have a method that make the search.
 - In this method add two optional parameters: offset and limit.
+- To visualize styles default you must have bootstrap.
 
 ## Usage
 
@@ -66,6 +67,10 @@ render() {
           totalElements={this.state.totalElements}
           offset={this.state.offset}
           limit={this.state.limit}
+          buttonClassName={{
+            active: "btn btn-success",
+            default: "btn btn-warning",
+          }}
         >
 
           <YourSearcher/>
@@ -85,6 +90,7 @@ render() {
 |  offset (Required)| number  | the offset to calculate the current page |
 |  limit (Required)| number  |  Quantity of elements to show|
 |  searchMethod (Optional)| method |  Here link your Searcher's method. If you don't specify, the Goten's component take 'search' by default from your Searcher component|
+|  buttonClassName (Optional)| object |  this object has two styles properties **active** for selected page and **default** for the others buttons. |
 
 ## Contributions
 
