@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 import { UltimatePagination } from './paginator'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 
 const buttonClassName = {
@@ -16,8 +16,10 @@ export default class GotenPaginator extends Component {
       }
     
     changePage = (newPage) => {
-        const searcherMethod = this.props.searcherMethod ? this.props.searcherMethod : "search" 
-        this.childRef.current[searcherMethod]((newPage-1)*this.props.limit, this.props.limit)
+        if (this.props.searchMethod)
+            this.props.searchMethod((newPage-1)*this.props.limit, this.props.limit)
+        else 
+            this.childRef.current[this.props.searcherMethodName || "search"]((newPage-1)*this.props.limit, this.props.limit)
     }
 
     render(){
@@ -36,6 +38,8 @@ GotenPaginator.propTypes = {
     totalElements:PropTypes.number.isRequired,
     offset:PropTypes.number.isRequired,
     limit:PropTypes.number.isRequired,
+    searchMethod: PropTypes.func,
+    searcherMethodName: PropTypes.string,
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node

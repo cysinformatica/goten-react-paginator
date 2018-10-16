@@ -12,7 +12,7 @@ describe('GotenPaginator have 3 elements: 2 childs passed and 1 own',()=>{
                 totalElements={7}
                 offset={0}
                 limit={2}
-                >
+            >
                 <Buscador/>
                 <List/>
             </GotenPaginator>
