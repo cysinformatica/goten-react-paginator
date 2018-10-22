@@ -75,8 +75,8 @@ render() {
           offset={this.state.offset}
           limit={this.state.limit}
           buttonClassName={{
-            active: "btn btn-success",
-            default: "btn btn-warning",
+            active: "btn btn-success", // These are classNames, you can use whatever classNames
+            default: "btn btn-default", // you have defined in your project.
           }}
         >
           <YourSearcher/>
